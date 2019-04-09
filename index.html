@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" id = "container">
+        <div class = "layer-horizontal" id="layer-horizontal" style="left:0px;"></div>
+        <div class="robby-container">
+            <div class="robby">
+                <div class="robby-slides" id="robby-slides"></div>
+                <div class="robby-eye-close" id= "robby-eye-close"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("keydown", moverRobby);
+        const robby = document.getElementById("robby-slides");
+        const eyes = document.getElementById("robby-eye-close");
+        var container = document.getElementById("layer-horizontal");
+
+        var teclas = {
+            LEFT: 37,
+            RIGHT: 39
+
+        };
+        function moverRobby(event){
+            // console.log(event);
+            switch(event.keyCode){
+                case teclas.RIGHT:
+                    console.log("right");
+                    robby.classList.toggle("right");
+                    robby.style.top = "0";
+                    eyes.style.left = "90px";
+                    container.style.left = parseInt(container.style.left, 10) - 100 + "px";
+                    
+                    robby.addEventListener("animationend", (event) =>
+                        robby.classList.remove("right")
+                    );
+                    break;
+                    
+                    case teclas.LEFT:
+                    console.log("left");
+                    robby.classList.toggle("left");
+                    robby.style.top = "-200px";
+                    eyes.style.left = "55px";
+                    container.style.left = parseInt(container.style.left, 10) + 100 + "px";
+                    robby.addEventListener("animationend", (event) =>
+                        robby.classList.remove("left")
+                    );
+
+                break;
+            }
+            
+
+        }
+    </script>
+</body>
+</html>

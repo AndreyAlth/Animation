@@ -1,0 +1,153 @@
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+}
+
+.container{
+    width: inherit;
+    height: inherit;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden;
+    background-image: url("./City4.png");
+    background-size: contain;
+    background-repeat: repeat-x; */
+}
+
+/* -----Layer-horizontal----- */
+.layer-horizontal{
+    width: 3000px;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    /* background-color: aqua; */
+    background-image: url("./background.png");
+    background-size: contain;
+    background-repeat: repeat;
+    top: 0;
+    /* left: 0; */
+}
+
+.robby-container{
+    width: 200px;
+    height: 175px;
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    /* background-color: aqua; */
+}
+
+.robby{
+    position: relative;
+    left: -50%;
+    width: 200px;
+    height: 175px;
+    overflow: hidden;
+    /* background-color: blueviolet; */
+}
+
+.robby-slides{
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* background-color: blue; */
+    width: 1800px;
+    height: 400px;
+    background-image: url("./robby-slides.png");
+    /* animation-name: none;
+    animation-duration: 2s; */
+}
+
+.robby-eye-close{
+    opacity: 0;
+    position: absolute;
+    left: 90px;
+    top: 35px;
+    width: 55px;
+    height: 25px;
+    background-image: url("./robby-eyes-close.png");
+    /* animation-name: close-eye;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate-reverse;
+    animation-delay: 2s; */
+    /* transition: opacity 0.5s;
+    transition-timing-function: ease-in-out */
+    animation: blink 2.4s infinite;
+
+    /* Buscar la manera de cambiar la transition */
+}
+/* .robby-eye-close:hover{
+    opacity: 1;
+} */
+
+.right{
+    animation-name: robbyRight;
+    animation-duration: 0.6s;
+}
+
+.left{
+    animation-name: robbyLeft;
+    animation-duration: 0.6s;
+}
+
+@keyframes blink{
+    90%{
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+    93%{
+        opacity:1;
+    }
+    100%{
+        animation-timing-function: ease-out;
+    }
+
+
+}
+@keyframes robbyRight{
+    10%{
+        left: 0;
+        animation-timing-function: step-end;
+    }
+    20%{
+        left: -200px;
+        animation-timing-function: step-end;
+    }
+    99%{
+        
+        left: -400px;
+        animation-timing-function: step-end;
+    }
+    /* from{
+        left: -200px;
+    }
+    to{
+        left: -400px;
+    } */
+}
+
+@keyframes robbyLeft{
+    10%{
+        left: 0;
+        top: -200px;
+        animation-timing-function: step-end;
+    }
+    20%{
+        animation-timing-function: step-end;
+        left: -200px;
+        top: -200px;
+        animation-timing-function: step-end;
+    }
+    99%{
+        
+        left: -400px;
+        top: -200px;
+        animation-timing-function: step-end;
+    }
+}
